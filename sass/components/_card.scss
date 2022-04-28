@@ -13,6 +13,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: $default-border-radius;
     overflow: hidden;
@@ -59,18 +60,26 @@
 
     &--1 {
       background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), 
-        url(../img/nat-5.jpg);
-      
+        url(../img/nat-5-large.jpg);
+
+      // background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), 
+      //   url(../img/nat-5.jpg);
+
+      // @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+      //        only screen and (min-width: 125em) {
+      //   background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), 
+      //     url(../img/nat-5-large.jpg);
+      // }
     }
 
     &--2 {
       background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), 
-        url(../img/nat-6.jpg);
+        url(../img/nat-6-large.jpg);
     }
 
     &--3 {
       background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), 
-        url(../img/nat-7.jpg);
+        url(../img/nat-7-large.jpg);
     }
   }
 
@@ -160,9 +169,13 @@
   MEDIA QUERIES
   
   - tab-port
+  
+  IMPORTANT!! THE (hover: none) CONDITION IS FOR TOUCH SCREENS
 
-*/
-  @include respond(tab-port) {
+// */
+//   @include respond(tab-port) {
+@media only screen and (max-width: 56.25em),
+       only screen and (hover: none) {
     height: auto;
     border-radius: $default-border-radius;
     background-color: $color-white;
